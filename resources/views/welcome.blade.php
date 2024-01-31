@@ -1,331 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Tani Desa Datar</title>
+        <title>Laravel</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
-    rel="stylesheet">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
 
-  <!-- My Style -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
+            .full-height {
+                height: 100vh;
+            }
 
-<body>
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
 
-  <!-- Navbar start -->
-  <nav class="navbar">
-    <a href="#" class="navbar-logo">Hasil<span>Panenku</span>.</a>
+            .position-ref {
+                position: relative;
+            }
 
-    <div class="navbar-nav">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#menu">Menu</a>
-      <a href="#products">Varietas</a>
-      <a href="#contact">Kontak</a>
-    </div>
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
 
-    <div class="navbar-extra">
-      <a href="#" id="search-button"><i data-feather="search"></i></a>
-      <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
-      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-    </div>
+            .content {
+                text-align: center;
+            }
 
-    <!-- Search Form start -->
-    <div class="search-form">
-      <input type="search" id="search-box" placeholder="search here...">
-      <label for="search-box"><i data-feather="search"></i></label>
-    </div>
-    <!-- Search Form end -->
+            .title {
+                font-size: 84px;
+            }
 
-    <!-- Shopping Cart start -->
-    <div class="shopping-cart">
-      <div class="cart-item">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="item-detail">
-          <h3>Product 1</h3>
-          <div class="item-price">IDR 30K</div>
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content">
+                <div class="title m-b-md">
+                    Laravel
+                </div>
+
+                <div class="links">
+                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://blog.laravel.com">Blog</a>
+                    <a href="https://nova.laravel.com">Nova</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://vapor.laravel.com">Vapor</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div>
+            </div>
         </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-      <div class="cart-item">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="item-detail">
-          <h3>Product 1</h3>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-      <div class="cart-item">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="item-detail">
-          <h3>Product 1</h3>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-    </div>
-    <!-- Shopping Cart end -->
-
-  </nav>
-  <!-- Navbar end -->
-
-  <!-- Hero Section start -->
-  <section class="hero" id="home">
-    <div class="mask-container">
-      <main class="content">
-        <h1>Satukan Hasil Panen,<br> <span> Satukan Sukses Tani!</span></h1>
-      </main>
-    </div>
-  </section>
-  <!-- Hero Section end -->
-
-  <!-- About Section start -->
-  <section id="about" class="about">
-    <h2><span>Tentang</span> Desa Datar</h2>
-
-    <div class="row">
-      <div class="about-img">
-        <img src="img/tentang-desa.png" alt="Tentang Kami">
-      </div>
-      <div class="content">
-        <h3>Mengenal Sekilas Desa Datar Yuk!</h3>
-        <p>Datar adalah sebuah desa di kecamatan Warungpring, Pemalang, Jawa Tengah, Indonesia.</p>
-        <p>Desa Datar dibagi menjadi empat dukuh yaitu Dukuh Salam, Dukuh Krajan, Dukuh Karang dan Dukung Celincing.</p>
-        <p>Potensi sebagian besar di Desa Datar terdapat pada pertanian yang berupa padi dan juga terdapat perbukitan yang memiliki pesona indah</p>
-      </div>
-    </div>
-  </section>
-  <!-- About Section end -->
-
-  <!-- Menu Section start -->
-  <section id="menu" class="menu">
-    <h2><span>Menu</span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, repellendus numquam quam tempora voluptatum.
-    </p>
-
-    <div class="row">
-      <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Capuccino -</h3>
-        <p class="menu-card-price">IDR 25K</p>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Latte -</h3>
-        <p class="menu-card-price">IDR 20K</p>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
-      </div>
-    </div>
-  </section>
-  <!-- Menu Section end -->
-
-  <!-- Products Section start -->
-  <section class="products" id="products">
-    <h2><span>Produk Unggulan</span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.</p>
-
-    <div class="row">
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Products Section end -->
-
-  <!-- Contact Section start -->
-  <section id="contact" class="contact">
-    <h2><span>Kontak</span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, provident.
-    </p>
-
-    <div class="row">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311709235512!3d-6.903444341687889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1672408575523!5m2!1sen!2sid"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-
-      <form action="">
-        <div class="input-group">
-          <i data-feather="user"></i>
-          <input type="text" placeholder="nama">
-        </div>
-        <div class="input-group">
-          <i data-feather="mail"></i>
-          <input type="text" placeholder="email">
-        </div>
-        <div class="input-group">
-          <i data-feather="phone"></i>
-          <input type="text" placeholder="no hp">
-        </div>
-        <button type="submit" class="btn">kirim pesan</button>
-      </form>
-
-    </div>
-  </section>
-  <!-- Contact Section end -->
-
-  <!-- Footer start -->
-  <footer>
-    <div class="socials">
-      <a href="https://www.instagram.com/datar_desaku/"><i data-feather="instagram"></i></a>
-      <a href="#"><i data-feather="twitter"></i></a>
-      <a href="#"><i data-feather="facebook"></i></a>
-    </div>
-
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Kontak</a>
-    </div>
-
-    <div class="credit">
-      <p>Created by <a href="">sandhikagalih</a>. | &copy; 2023.</p>
-    </div>
-  </footer>
-  <!-- Footer end -->
-
-  <!-- Modal Box Item Detail start -->
-  <div class="modal" id="item-detail-modal">
-    <div class="modal-container">
-      <a href="#" class="close-icon"><i data-feather="x"></i></a>
-      <div class="modal-content">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="product-content">
-          <h3>Product 1</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, tenetur cupiditate facilis obcaecati
-            ullam maiores minima quos perspiciatis similique itaque, esse rerum eius repellendus voluptatibus!</p>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-          <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Box Item Detail end -->
-
-  <!-- Chatbot Tab start -->
-
-  <div id="chat-tab">
-    <div id="chat-icon" onclick="toggleChat()">
-        <img src="chat-icon.png" alt="Chat Icon">
-    </div>
-    <div id="chat-window">
-        <!-- Chat window content goes here -->
-        <div id="chat-header">
-            <span id="chat-title">Chat</span>
-            <span id="close-chat" onclick="toggleChat()">X</span>
-        </div>
-        <div id="chat-messages">
-            <!-- Chat messages go here -->
-        </div>
-        <div id="chat-input">
-            <input type="text" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-  </div>
-
-  <!-- Chatbot Tab start -->
-
-  <!-- Feather Icons -->
-  <script>
-    feather.replace()
-  </script>
-
-  <!-- My Javascript -->
-  <script src="{{ asset('js/app.js') }}"></script>
-</body>
-
+    </body>
 </html>

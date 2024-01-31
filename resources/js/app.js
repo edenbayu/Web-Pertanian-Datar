@@ -1,68 +1,35 @@
-import './bootstrap';
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
 
-// Toggle class active untuk hamburger menu
-const navbarNav = document.querySelector('.navbar-nav');
-// ketika hamburger menu di klik
-document.querySelector('#hamburger-menu').onclick = () => {
-  navbarNav.classList.toggle('active');
-};
+require("./bootstrap");
 
-// Toggle class active untuk search form
-const searchForm = document.querySelector('.search-form');
-const searchBox = document.querySelector('#search-box');
+window.Vue = require("vue");
 
-document.querySelector('#search-button').onclick = (e) => {
-  searchForm.classList.toggle('active');
-  searchBox.focus();
-  e.preventDefault();
-};
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
 
-// Toggle class active untuk shopping cart
-const shoppingCart = document.querySelector('.shopping-cart');
-document.querySelector('#shopping-cart-button').onclick = (e) => {
-  shoppingCart.classList.toggle('active');
-  e.preventDefault();
-};
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Klik di luar elemen
-const hm = document.querySelector('#hamburger-menu');
-const sb = document.querySelector('#search-button');
-const sc = document.querySelector('#shopping-cart-button');
+Vue.component(
+    "example-component",
+    require("./components/ExampleComponent.vue").default
+);
 
-document.addEventListener('click', function (e) {
-  if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove('active');
-  }
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
-  if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
-    searchForm.classList.remove('active');
-  }
-
-  if (!sc.contains(e.target) && !shoppingCart.contains(e.target)) {
-    shoppingCart.classList.remove('active');
-  }
+const app = new Vue({
+    el: "#app"
 });
-
-// Modal Box
-const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButtons = document.querySelectorAll('.item-detail-button');
-
-itemDetailButtons.forEach((btn) => {
-  btn.onclick = (e) => {
-    itemDetailModal.style.display = 'flex';
-    e.preventDefault();
-  };
-});
-
-// klik tombol close modal
-document.querySelector('.modal .close-icon').onclick = (e) => {
-  itemDetailModal.style.display = 'none';
-  e.preventDefault();
-};
-
-// klik di luar modal
-window.onclick = (e) => {
-  if (e.target === itemDetailModal) {
-    itemDetailModal.style.display = 'none';
-  }
-};
