@@ -124,7 +124,7 @@ body {
   }
   
   .invest__item:nth-child(1) {
-    background: url("../assets/images/sawah.png") no-repeat center/cover;
+    background: url("..\img\OPT.jpg") no-repeat center/cover;
   }
   
   .invest__item:nth-child(2) {
@@ -261,3 +261,43 @@ body {
   .btn_varietas:hover:before {
     width: 100%;
   }
+
+  .news-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.news-card {
+    background-color: #202421;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    overflow: hidden;
+    width: 300px;
+}
+
+.news-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.news-details {
+    padding: 15px;
+}
+
+.news-details h2 {
+    margin-top: 0;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 15px;
+    color: #ddd;
+    margin-bottom: 5px;
+}
+
+.news-details p {
+    margin: 0;
+    color: #555;
+}

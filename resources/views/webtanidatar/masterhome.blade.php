@@ -12,11 +12,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">   
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/logo.svg">
     <link rel="manifest" href="/assets/icons/favicon/site.webmanifest">
     <title>Web Pertanian Datar</title>
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/app-bar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -68,7 +71,7 @@
                         </div>
                         @if (Route::has('register'))
                         <div class="auth-li border-auth">
-                            <a href="{{ route('register') }}" class="btn btn-success text-white sign-up-btn">Daftar</a>
+                            <a href="{{ route('register') }}" class="sign-in-home">Daftar</a>
                         </div>
                         @endif
                     </div>    

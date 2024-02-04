@@ -1,94 +1,142 @@
-@extends('webtanidatar.master')
+@extends('webtanidatar.masterhome')
 
 @section('content')
-<div class="jumbotron">
-    <div style="width: 100%; height: 100%; background: white; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 1862px; height: 800px; position: relative; background: white; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-            <div style="width: 822px; height: 773px; position: relative">
-                <div style="width: 900px; height: 800px; left: 0px; top: 0px; position: absolute; background: #F2F2F2"></div>
-                <div style="left: 69px; top: 300px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 32px; display: inline-flex">
-                    <div style="width: 512px; color: #333333; font-size: 24px; font-family: Nunito; font-weight: 400; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus imperdiet sed id elementum. Quam vel aliquam sit.</div>
-                    <div style="padding-left: 56px; padding-right: 56px; padding-top: 24px; padding-bottom: 24px; background: #437223; border-radius: 40px; overflow: hidden; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
-                        <a href="/varietas" class="btn page-scroll">
-                            <div style="color: white; font-size: 24px; font-family: Nunito; font-weight: 800; line-height: 18px; word-wrap: break-word">Eksplor Tanaman Padimu!</div>
+<body>
+    <div class="container">
+        <header>
+            <nav class="header__nav w-120">
+                <div class="header__logo">
+                    <img src="img/Logo.png" alt="Logo">
+                </div>
+                <div class="header__nav__content">
+                    <div class="nav-close-icon"></div>
+                    <ul class="header__menu">
+                        <li class="menu__item">
+                            <a href="/home" class="menu__link active">Beranda</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/varietas" class="menu__link">Varietas</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/community" class="menu__link">Diskusi</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/articles" class="menu__link">Blog</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/faq" class="menu__link">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hamburger-menu-wrap">
+                    <div class="hamburger-menu">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero w-120">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">Petani Datar Berkolaborasi
+                        Sebarkan Inspirasi</h1>
+                    <p class="hero__description">
+                        TaniDatar menyediakan layanan untuk dapat berdikusi seputar permasalahan tani, informasi lengkap seputar varietas tanaman padi, serta artikel seputar tips pertanian.
+                    </p>
+                    <a href="/varietas" class="btn btn__hero">Eksplor Tanaman Padi</a>
+                </div>
+                <div class="hero__img">
+                    <img src="img/hero.png" alt="">
+                </div>
+            </div>
+        </section> 
+
+        <section class="opportunities">
+            <div class="opportunities__img">
+                <img src="img/leaf.png" alt="">
+            </div>
+            <div class="opportunities__content w-105">
+                <div class="opportunities__head">
+                    <h2 class="opportunities__title">Fitur Unggulan Kami</h2>
+                    <p class="opportunities__description">Layanan Lengkap yang dapat membantu Anda menyelesaikan permasalahan tanimu</p>
+                </div>
+                <div class="opportunities__body">
+                    <div class="opportunity">
+                        <a href="community">
+                            <img src="img/opportunites/opportunity-1.svg" alt="Icon" class="opportunity__icon">
+                            <h4 class="opportunity__title">Forum Diskusi Tani</h4>
+                            <p class="opportunity__description">Bagikan permasalahan pertanianmu dan bagikan solusi terbaikmu!
+
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="opportunity active">
+                        <a href="articles">
+                            <img src="img/opportunites/opportunity-2.svg" alt="Icon" class="opportunity__icon">
+                            <h4 class="opportunity__title">Artikel Pertanian</h4>
+                            <p class="opportunity__description">
+                            Tingkatkan literasi dan pemahaman  pertanianmu melalui artikel pertanian!
+                            </p>
+                        </a>
+                    </div>
+                    <div class="opportunity">
+                        <a href="varietas">
+                            <img src="img/opportunites/opportunity-3.svg" alt="Icon" class="opportunity__icon">
+                            <h4 class="opportunity__title">Database Varietas Padi
+                            </h4>
+                            <p class="opportunity__description">
+                                Temukan informasi lengkap seputar keunggulan serta kelemahan varietas padimu!
+                            </p>
                         </a>
                     </div>
                 </div>
-                <div style="width: 796px; left: 69px; top: 126px; position: absolute"><span style="color: #333333; font-size: 56px; font-family: Poppins; font-weight: 600; line-height: 72px; letter-spacing: 0.56px; word-wrap: break-word">Petani Datar </span><span style="color: #004D3D; font-size: 56px; font-family: Poppins; font-weight: 600; line-height: 72px; letter-spacing: 0.56px; word-wrap: break-word">Berkolaborasi<br/></span><span style="color: #333333; font-size: 56px; font-family: Poppins; font-weight: 600; line-height: 72px; letter-spacing: 0.56px; word-wrap: break-word">Sebarkan </span><span style="color: #004D3D; font-size: 56px; font-family: Poppins; font-style: italic; font-weight: 600; line-height: 72px; letter-spacing: 0.56px; word-wrap: break-word">Inspirasi</span></div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-
-        <!-- article -->
-        <div id="articles" class="container mt-5">
-        <div class="card mb-4 w-100 box-shadow-card get-article-detail">
-                <div class="row g-0">
-                    <div class="col-md-4 card-img-wrap">
-                        <img src="https://cdn.pixabay.com/photo/2019/06/06/08/00/hydroponics-4255403_960_720.jpg" alt="Langkah Awal Menanam Hidroponik" class="w-100 h-100"
-                            style="object-fit: cover;">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body p-4">
-                            <a href="/blog" class="text-decoration-none text-dark">
-                                <h6 class="card-title fw-bold box-tittle">Pertanian Hidroponik</h6>
-                            </a>
-
-                            <p class="card-text"><small class="text-muted">Tim I KKN Undip 2024 - 25 Januari 2024</small></p>
-                            <p class="card-text desc">Dengan rentang waktu pengembangan aplikasi yang terbatas, tim Kami berhasil membangun sistem yang diharapkan walaupun masih jauh dari kata sempurna. Fitur-fitur mayor seperti autentikasi, membuat dan menjawab pertanyaan, memberi komentar pada peranyaan, serta menambah poin kredibilitas berhasil diimplementasikan dengan baik. Namun, fitur-fitur minor seperti membuat artikel belum berhasil diimplementasikan.</p>
-                            <p class="card-text"><small class="text-muted">#kuatkanSektorPertanian</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-
-        <div class="container see-article-container">
-            <a href="/blog" class="text-decoration-none see-all-article">
-                <p class="text-center text-dark see-all-article">Lihat semua artikel<i
-                        class="bi bi-arrow-right-short arrow-right-icon" style="font-size: 1.6rem;"></i></p>
-            </a>
-        </div>
+        </section>
 
         <section class="invest  w-105">
             <div class="invest__content">
+                <div class="invest__head">
+                    <h2 class="invest__title">Sekilas Artikel Pertanian</h2>
+                    <p class="invest__description">Autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+                </div>
                 <div class="invest__body">
                     <div class="invest__item">
                         <div class="invest__item__head">
-                            <h5 class="invest__item__subtitle">VARIETAS PADI</h5>
+                            <h5 class="invest__item__subtitle">Hama Penyakit</h5>
                         </div>
                         <div class="invest__item__body">
-                            <h4 class="invest__item__title"style="font-family:Poppins;">Informasi Varietas Padi</h4>
-                            <p class="invest__item_description" style="font-family:Nunito">
-                                Eksplorasi informasi terkait varietas padi, serta anjuran tanamnya
+                            <h4 class="invest__item__title">Beberapa Hama & Penyakit Tanaman Padi serta Cara Mengatasinya</h4>
+                            <p class="invest__item_description">
+                                Artikel Pertanian Datar
                             </p>
                         </div>
                         <div class="invest__item__footer">
-                            <a href="/varietas" class="btn btn__invest">Lihat Informasi Padi</a>
+                        <a href="/articles/7" class="btn btn__invest" style="font-size:18px">Baca Artikel</a>
                         </div>
                     </div>
                     <div class="invest__item">
                         <div class="invest__item__head">
-                            <h5 class="invest__item__subtitle" >DISKUSI TANI</h5>
+                            <h5 class="invest__item__subtitle">Pupuk</h5>
                         </div>
                         <div class="invest__item__body">
-                            <h4 class="invest__item__title">Long terms investment
+                            <h4 class="invest__item__title">Mengungkap Manfaat Masing-Masing Pupuk untuk Pertumbuhan Optimal Tanaman Padi
                             </h4>
                             <p class="invest__item_description">
-                                Consider farms that have long term investment program.
+                                Artikel Pertanian Datar
                             </p>
                         </div>
                         <div class="invest__item__footer">
-                            <a href="/community" class="btn btn__invest">Diskusi</a>
+                            <a href="/articles/8" class="btn btn__invest"style="font-size:18px">Baca Artikel</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>        
+        </section>
+
+    <script src="assets/js/main.js" type="module"></script>
 @endsection
-
-
-
-

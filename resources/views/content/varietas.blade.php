@@ -2,6 +2,20 @@
 
 @section('content')
 <!-- Your existing code for the main view -->
+<!-- Title -->
+<div id="container" style="display: flex; flex-direction: column; align-items: center; padding: 15px; text-align: center;">
+
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+        <img style="width: 136px; height: 136px; margin-right: 10px;" src="../assets/icons/header.png" />
+        <div style="font-size: 24px; font-family: Poppins; font-weight: 700; color: #1E1E1E;">
+        <p style="font-size: 34px;font-family: Poppins; font-weight: 1000;">INFORMASI</p>
+        <p style="font-size: 28px; font-family: Poppins; font-style: italic; font-weight: 1000;">Seputar Jenis Padi</p>
+        </div>
+    </div>
+</div>
+
+
+
 <!-- Search Bar -->
     <div style="width: 100%; padding: 20px; background: #FFFFFF; justify-content: center; align-items: center; display: flex;">
         <form action="{{ route('search') }}" method="GET" style="display: flex; align-items: center;">
@@ -10,20 +24,14 @@
         </form>
     </div>
 
-<!-- Title -->
-    <div style="width: 100%; height: 100%; position: relative">
-        <div style="left: 650px; top: 62px; position: absolute; color: #004D3D; font-size: 48px; font-family: Poppins; font-style: italic; font-weight: 1000; word-wrap: break-word">Seputar Jenis Padi</div>
-        <div style="width: 384px; height: 62px; left: 650px; top: 0px; position: absolute; color: #1E1E1E; font-size: 64px; font-family: Poppins; font-weight: 1000; word-wrap: break-word">INFORMASI</div>
-        <img style="width: 136px; height: 136px; left: 505px; top: 3px; position: absolute" src="../assets/icons/header.png" />
-    </div>
-
 <!-- Rest of your content -->
 
+    
     @if ($varietas->count() > 0)
-        <div style="width: 100%; height: 100%; padding-left: 80px; padding-right: 80px; padding-top: 176px; padding-bottom: 176px; background: #F2F2F2; justify-content: center; align-items: flex-start; gap: 20px; display: inline-flex">
+        <div id="sidebar" style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 20px;gap: 20px;">
             @foreach ($varietas as $varieta)    
-                <div style="flex: 1 1 0; max-width: 366px; align-self: stretch; padding: 16px; background: white; border-radius: 20px; border: 1px black solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                    <div style="width: 100%; height: 284px; padding-top: 28px; padding-bottom: 29px; background: white; border-radius: 12px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; display: flex">
+                <div style="flex: 1 1 0; max-width: 340px; align-self: stretch; padding: 10px; background: white; border-radius: 20px; border: 1px black solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 20px; display: inline-flex">
+                    <div style="width: 100%; height: 284px; padding-top: 28px; padding-bottom: 35px; background: white; border-radius: 12px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; display: flex">
                         <img style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;" src="../assets/icons/rice.jpg" />
                     </div>
                 <div style="align-self: stretch; height: 54px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">

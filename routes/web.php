@@ -25,11 +25,16 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 
-Route::get('/blog',[BlogController::class, 'index']);
-
 Route::get('/signin', function(){
     return view('auth.login');
 });
+
+Route::get('/articles', [BlogController::class, 'index']);
+Route::post('/articles', [BlogController::class, 'store']);
+Route::get('/articles/create', [BlogController::class, 'create']);
+Route::get('/articles/{article}', [BlogController::class, 'show']);
+Route::get('/articles/{article}/edit', [BlogController::class, 'edit']);
+Route::put('/articles/{article}', [BlogController::class, 'update']);
 
 Route::get('/varietas', [VarietasController::class, 'index']);
 Route::get('/varietas', [VarietasController::class, 'search'])->name('search');
@@ -54,6 +59,7 @@ Route::get('/user/{id}/listquestion',[UserController::class, 'indexQuestion'])->
 
 Route::delete('/user/{id}/listquestion/{quest_id}',[UserController::class, 'destroy']);
 Route::get('/user/{id}/listarticle',[UserController::class, 'indexArticle']);
+
 
 Route::get('/setting/{id}',[SettingController::class, 'show']);
 Route::put('/setting/{id}',[SettingController::class, 'update']);

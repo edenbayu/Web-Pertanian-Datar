@@ -23,10 +23,10 @@ class UserController extends Controller
         ])->where('user_id',$id)->get();
 
         $totalQuestion = Question::where('user_id',$id)->count('user_id');
-
+        $totalArticle = Article::where('user_id',$id)->count('user_id');
         $answered = Answer::where('user_id',$id)->count('user_id');
 
-        return view('content.user',compact('totalQuestion','poin','user','answered'));
+        return view('content.user',compact('totalQuestion','totalArticle','poin','user','answered'));
     }
 
     public function indexQuestion($id){
@@ -39,25 +39,26 @@ class UserController extends Controller
         ])->where('user_id',$id)->get();
 
         $totalQuestion = Question::where('user_id',$id)->count('user_id');
-
+        $totalArticle = Article::where('user_id',$id)->count('user_id');
         $answered = Answer::where('user_id',$id)->count('user_id');
 
-        return view('content.userquestion',compact('questions','totalQuestion','poin','user','answered'));
+        return view('content.userquestion',compact('questions','totalArticle','totalQuestion','poin','user','answered'));
     }
 
     public function indexArticle($id){
         $user = User::find($id);
 
+        $articles = Article::where('user_id',$id)->get();
         
         $poin = DB::table('questions')->select([
             DB::raw('sum(poin) as poin')
         ])->where('user_id',$id)->get();
 
-        $totalQuestion = Question::where('user_id',$id)->count('user_id');
+        $totalArticle = Article::where('user_id',$id)->count('user_id');
 
         $answered = Answer::where('user_id',$id)->count('user_id');
 
-        return view('content.userarticle',compact('totalQuestion','poin','user','answered'));
+        return view('content.userarticle',compact('articles','totalArticle','poin','user','answered'));
     }
 
     public function destroy($id, $quest_id){

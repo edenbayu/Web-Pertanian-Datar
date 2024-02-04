@@ -63,7 +63,7 @@
                             <div class="col-md-4 col-lg-4">
                                 <div class="rounded p-3 my-2 quantity-profile">
                                     <h6>Menulis</h6>
-                                    <h3>0</h3>
+                                    <h3>{{ $totalArticle ?? 0 }}</h3>
                                     <h6 class="text-center mb-0">Artikel</h6>
                                 </div>
                             </div>

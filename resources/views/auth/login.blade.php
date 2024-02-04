@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="menu-li blog">
-                            <a href="/blog" class="act">Blog</a>
+                            <a href="/articles" class="act">Blog</a>
                         </div>
 
                         <div class="menu-li about act">

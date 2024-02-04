@@ -41,15 +41,19 @@
                 
                     <div class="d-flex menu-list">
                         <div class="menu-li home-utama">
-                            <a href="/home" class="page-scroll act">Home</a>
+                            <a href="/home" class="page-scroll act">Beranda</a>
+                        </div>
+
+                        <div class="menu-li home-utama">
+                            <a href="/varietas" class="page-scroll act">Varietas</a>
                         </div>
 
                         <div class="menu-li community">
-                            <a href="/community" class="page-scroll act">Komunitas</a>
+                            <a href="/community" class="page-scroll act">Diskusi</a>
                         </div>
 
                         <div class="menu-li blog">
-                            <a href="/blog" class="act">Blog</a>
+                            <a href="/articles" class="act">Blog</a>
                         </div>
 
                         <div class="menu-li about act">
@@ -224,7 +228,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h4 class="text-center mt-4 mb-3 footer-title fw-light">Tani Datar</h4>
-                        <p class="text-center footer-desc fw-light">AgriAsk adalah komunitas pertanian terbesar di Indonesia! Kamu bisa belajar dan
+                        <p class="text-center footer-desc fw-light">TaniDatar adalah komunitas pertanian terbesar di Indonesia! Kamu bisa belajar dan
                             berbagi
                             informasi seputar pertanian terkini.</p>
                         <p class="text-center footer-email fw-light">Contact us: info@agriask.com</p>

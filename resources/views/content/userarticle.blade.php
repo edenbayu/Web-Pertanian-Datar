@@ -17,9 +17,40 @@
                 </div>
 
                 <!-- right side detail -->
-                <didiv class="col-md-9 col-lg-9 margin-when-mobile">
+                <div class="col-md-9 col-lg-9 margin-when-mobile">
+                @forelse($articles as $article)
+                <div class="card bs-callout box-shadow-card my-3">
+                    <div class="card-body">
+                         <div class="d-flex justify-content-between">
+                         
+                <a href="/community/{{ $article->id }}/detail/{{ $article->user_id }}" class="text-decoration-none text-dark">
+                    <h6 class="fw-bold question-tittle box-tittle">{{ $article->title }}</h6>
+                </a>       
 
-<!-- ini ilustrasi kalo si user artikelnya kosong -->
+                @if($user->id === Auth::id())   
+                <div>
+                                <form action="/user/{{ $user->id }}/listarticle/{{ $article->id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-outline-danger"><i
+                                            class="bi bi-trash-fill downvote"></i>&nbsp;hapus</button>        
+                                </form>
+                                
+                </div>     
+                @endif      
+               
+            </div>
+
+                <p class="card-text"><small class="text-muted"> {{ $article->user->username }}</small>
+                </p>
+                <p class="desc">{{ $article->body }}</p>
+                <div class="d-flex justify-content-end">        
+                </div>
+            </div>
+    </div>
+    @empty
+
+    <!-- ini ilustrasi kalo si user artikelnya kosong -->
 <div class="article-illustration">
     <svg class="animated" id="freepik_stories-blog-post" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1030,6 +1061,7 @@
     pertama-Mu!
 </p>
 <!-- itutup ilustrasi -->
+@endforelse 
 
 
 <!-- pagination -->
